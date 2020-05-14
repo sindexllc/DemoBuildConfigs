@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    
+    <title>Game1</title>
+    <link rel="icon" href="Assets/sindex.png">
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Game1.json");
+    </script>
+  </head>
+    <style>
+    body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+    }
+
+     #gameContainer {
+        position: absolute;
+        top: 21.3%;
+        left: 17.6%;
+        height: calc((0.625) * 60.3vw);
+        width: 60.35vw;
+    }
+
+    .background-image {
+        height: calc((9 / 16) * 100vw);
+        width: 100vw;
+    }
+</style>
+<script>
+    window.onload = function () {
+        const canvas = document.querySelector('canvas');
+
+        function changeCanvasSize() {
+            canvas.width = vw(51.5);
+            canvas.height = (0.625) * vw(51.5);
+        }
+
+        function vw(v) {
+            const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            return (v * w) / 100;
+        }
+
+        window.onresize = changeCanvasSize;
+    }
+</script>
+<body>
+    <img class="background-image" src='Assets/background_nebula.png'>
+         <div id="gameContainer"></div>
+  </body>
+</html>
